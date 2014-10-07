@@ -1,0 +1,77 @@
+
+	<div class="container">
+		
+		<!-- Ejemplo1 -->
+		
+		<div class="modal fade" id="contact" role="dialog" >
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+					</div>
+					<div class="modal-body">
+						<form class="form-horizontal" id='form1'>
+							<fieldset>
+							
+							<!-- Select -->
+							<div class="form-group">
+							  <label class="col-md-4 control-label" for="selectbasic">Tipo</label>
+							  <div class="col-md-4">
+							    <select id="type" name="" class="form-control">
+							      <option value="text">Texto</option>
+							      <option value="number">Numero</option>
+										<option value="date">Fecha</option>
+							    </select>
+							  </div>
+							</div>
+							
+							<!-- Text input -->
+							<div class='form-group'>
+								<label class="control-label col-sm-2">Propiedad</label>
+								<div class='col-md-8'>
+									<input class='form-control input-md' type="text" id="label" required="required">
+								</div>
+							</div>
+							
+							<div class="modal-footer">
+					        	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+					        	<button type="button" id="saveOne" class="btn btn-primary" data-dismiss="modal">Guardar</button>				     
+							</div>
+							
+							</fieldset>
+			     		</form>
+			    	</div>
+				</div>
+			</div>
+		</div>
+			
+		<form class="form-horizontal jumbotron " id="target">
+			<fieldset>
+
+			<!-- Form Name -->
+				<center>
+					<legend>Formulario</legend>
+					<div class="text-right">
+						<a href="#contact" class="btn btn-success btn-sm" data-toggle="modal" id="ejemplo1">Nuevo Campo</a>
+					</div>
+				</center>
+				<div class="body">
+				
+				</div>
+
+			<!-- Button (Double) -->
+				<center>
+					<div class="control-group">
+					  <label class="control-label" for="button1id"></label>
+					  <div class="controls">
+					    <a href="/" id="cancelar" name="cancelar" class="btn btn-default">Cancelar</a>
+					    <button id="button1id" name="button1id" class="btn btn-primary">Aceptar</button>
+					  </div>
+					</div>
+				</center>
+			</fieldset>
+		</form>
+
+	</div><!-- Container -->
+	 
+	
+	
