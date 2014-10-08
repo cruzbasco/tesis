@@ -16,14 +16,6 @@ $(document).ready(function(){
 		};
 	}
 
-	$("#save").click(function(){
-		if ($("#label").val() != "") {
-			formulario1();	
-		} else{
-			alert("Llenar el campo");
-		};
-	});
-
 	$("#saveOne").click(function(){
 		if ($("#label").val() != "") {
 			formulario1();	

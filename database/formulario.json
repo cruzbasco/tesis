@@ -1,0 +1,4 @@
+{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"persona","type":{"^o":"TextType"}}}
+{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"vehiculo","type":{"^o":"TextType"}}}
+{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"notas","type":{"^o":"TextType"}}}
+{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"prueba","type":{"^o":"TextType"}}}

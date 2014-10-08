@@ -1,0 +1,26 @@
+<h1>Formularios</h1>
+<div class="table-responsive">
+	<div class="text-right">
+		<a href="/form_builder" class="btn btn-success btn-sm" data-toggle="modal">Nuevo Formulario</a>
+	</div>
+	<table class="table table-striped">
+		<thead>
+	    	<tr>
+	        	<th>#</th>
+	          <th>Nombre</th>		
+						<th>Opciones</th>
+			      
+	     	</tr>
+		</thead>
+		<tbody>
+			<% numeroFormulario = 0 %>
+			<% @forms.each do |form| %>
+	        	<tr>
+	            <td><%= numeroFormulario += 1 %></td>
+							<td><%= form.main_attribute.value %></td>
+							<td><a href = "/form_builder/<%= form.main_attribute.value %>"  class="btn btn-primary"> Ver </a></td>
+						</tr>
+			<% end %>
+ 		</tbody>
+	</table>
+</div>
