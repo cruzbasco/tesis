@@ -10,7 +10,16 @@ class Repositorio
   end
   
   def guardar(formulario)
-    @formularios.push(formulario)
+    resp = false
+    @formularios.each do |f| 
+      if f.get_main_value == formulario.get_main_value then
+        f.set_attributes(formulario.get_attributes)
+        resp = true
+      end
+    end
+    if !resp then
+      @formularios.push(formulario)
+    end
     @persistencia.guardar_todos(@formularios)
   end
   

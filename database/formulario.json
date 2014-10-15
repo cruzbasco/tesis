@@ -1,4 +1,1 @@
-{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"persona","type":{"^o":"TextType"}}}
-{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"vehiculo","type":{"^o":"TextType"}}}
-{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"notas","type":{"^o":"TextType"}}}
-{"^o":"Entity","attributes":[],"main_attribute":{"^o":"Attribute","property":"Formulario","value":"prueba","type":{"^o":"TextType"}}}
+{"^o":"Entity","main_attribute":{"^o":"Attribute","property":"Formulario","value":"venta","type":{"^o":"TextType"}},"attributes":[{"^o":"Attribute","property":"producto","value":"algo","type":{"^o":"TextType"}},{"^o":"Attribute","property":"precio","value":"5000","type":{"^o":"TextType"}}]}

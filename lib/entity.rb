@@ -7,6 +7,10 @@ class Entity
     @attributes = []
   end
   
+  def get_main_value
+    @main_attribute.value
+  end
+  
   def add_attribute (attribute)
     @attributes.push(attribute)
   end
@@ -17,6 +21,10 @@ class Entity
   
   def search_attribute (data)
     @attributes.select{|attribute| attribute.property == data || attribute.value == data}.first
+  end
+  
+  def get_attributes
+    @attributes
   end
 
   def set_attributes(attributes)
