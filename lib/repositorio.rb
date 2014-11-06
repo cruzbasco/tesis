@@ -23,7 +23,6 @@ class Repositorio
     @persistencia.guardar_todos(@formularios)
   end
   
-  
   def recuperar
     @formularios = @persistencia.recuperar_todos
   end

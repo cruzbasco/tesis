@@ -19,7 +19,7 @@
 						    <select id="type" name="" class="form-control">
 						      <option value="text">Texto</option>
 						      <option value="number">Numero</option>
-									<option value="date">Fecha</option>
+								<option value="date">Fecha</option>
 						    </select>
 						  </div>
 						</div>
@@ -66,7 +66,7 @@
 				</div>
 			</center>
 			<div class="body">
-				<% @form.attributes.each do |attribute| %>
+				<% @form.get_attributes_values.each do |attribute| %>
 					<%= attribute.editable_type %>
 				<%end%>
 			</div>

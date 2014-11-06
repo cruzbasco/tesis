@@ -17,8 +17,8 @@
 			<% @forms.each do |form| %>
 	        	<tr>
 	            <td><%= numeroFormulario += 1 %></td>
-							<td><%= form.main_attribute.value %></td>
-							<td><a href = "/form_builder/<%= form.main_attribute.value %>"  class="btn btn-primary"> Ver </a></td>
+							<td><%= form%></td>
+							<td><a href = "/form_builder/<%= form %>"  class="btn btn-primary"> Ver </a></td>
 						</tr>
 			<% end %>
  		</tbody>
