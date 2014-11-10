@@ -1,20 +1,16 @@
-
 <div class="container">
-	
-	<!-- Ejemplo1 -->
-	
-	<div class="modal fade" id="contact" role="dialog" >
+		
+	<div class="modal fade" id="float_modal" role="dialog" >
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" id='form1'>
+					<form class="form-horizontal" id='menu_flotante' action="" method="post">
 						<fieldset>
 						
-						<!-- Select -->
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="selectbasic">Tipo</label>
+						  <label class="col-md-4 control-label" for="type">Tipo</label>
 						  <div class="col-md-4">
 						    <select id="type" name="" class="form-control">
 						      <option value="text">Texto</option>
@@ -24,17 +20,16 @@
 						  </div>
 						</div>
 						
-						<!-- Text input -->
-						<div class='form-group'>
+						<div class='required form-group'>
 							<label class="control-label col-sm-2">Propiedad</label>
 							<div class='col-md-8'>
-								<input class='form-control input-md' type="text" id="label" required="required">
+								<input class='form-control input-md' type="text" id="label" required/>
 							</div>
 						</div>
 						
 						<div class="modal-footer">
 				        	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-				        	<button type="button" id="saveOne" class="btn btn-primary" data-dismiss="modal">Guardar</button>				     
+							<button type="submit" id="save" class="btn btn-default">Guardar</button>
 						</div>
 						
 						</fieldset>
@@ -44,24 +39,20 @@
 		</div>
 	</div>
 	
-	<form class="form-horizontal" action="/formularios" method="post" name="nuevo" id="target" onsubmit="return formulario()">	
+	<form class="form-horizontal" action="/forms" method="post" name="nuevo" id="target" onsubmit="return formulario()">	
 		<fieldset>
-
-		<!-- Form Name -->
 			<center>
 				<legend>Formulario</legend>
-				<div class="text-right">
-					<a href="#contact" class="btn btn-success btn-sm" data-toggle="modal" id="ejemplo1">Nuevo Campo</a>
+				<div class="text-right">					
+					<a href="#float_modal" class="btn btn-success btn-sm" data-toggle="modal" >Nuevo Campo</a>
 				</div>
-				<!-- Text input -->
 				<div class="form-group">
 				  <label class="col-md-2 control-label" for="form_name"></label>
 				  <div class="col-md-8">
 				    <div class="input-group">
 				      <span class="input-group-addon">Nombre del Formulario</span>
-				      <input id="form_name" name="form_name" class="form-control" value ="<%= @form.main_attribute.value %>" type="text" required="">
+				      <input id="form_name" name="form_name" class="form-control" value ="<%= @form.main_attribute.value %>" type="text" required="" autofocus="">
 				    </div>
-
 				  </div>
 				</div>
 			</center>
@@ -70,11 +61,8 @@
 					<%= attribute.editable_type %>
 				<%end%>
 			</div>
-
-		<!-- Button (Double) -->
 			<center>
 				<div class="control-group">
-				  <label class="control-label" for="button1id"></label>
 				  <div class="controls">
 				    <a href="/" id="cancelar" name="cancelar" class="btn btn-default">Cancelar</a>
 					 <input type="submit" value="Aceptar" class="btn btn-primary" />					
@@ -84,6 +72,6 @@
 		</fieldset>
 	</form>
 
-</div><!-- Container -->
+</div>
  
 

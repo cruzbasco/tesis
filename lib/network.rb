@@ -27,4 +27,9 @@ class Network
     Oj.load(@redis.get(form))
   end
   
+  def delete_form (form)
+    @redis.del(form)
+    @redis.srem("forms",form)
+  end
+  
 end

@@ -28,4 +28,12 @@ class Attribute
     @type.non_editable(@property, @value)
   end
   
+  def self.select (type)
+    attribute_type = case type
+    when "text" then TextType.new
+    when "number" then NumericType.new 
+    when "date" then DateType.new
+    end
+  end
+  
 end
