@@ -9,7 +9,7 @@ $(document).ready(function(){
 	});
 
 	function add_custom_attribute () {
-		var label = $("#label").val().toLowerCase();
+		var label = $("#label").val();
 		var type = $("#type option:selected").val();
 		$("div.body").append("<div class='form-group'><label class='control-label col-sm-2' for='"+label+"'>"+label+"</label><div class='col-md-8'><input id='"+label+"' name='"+label+"' type='"+type+"' class='form-control input-md'></div></div><input type='hidden' name='"+label+"_type' value='"+type+"'>"); 
 	}

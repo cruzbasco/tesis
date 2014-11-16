@@ -33,6 +33,7 @@ class Attribute
     when "text" then TextType.new
     when "number" then NumericType.new 
     when "date" then DateType.new
+    else TextType.new
     end
   end
   

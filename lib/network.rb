@@ -3,24 +3,28 @@ require "oj"
 
 class Network
   
-  attr_accessor :forms, :entity_types, :nodes
+  attr_accessor :forms, :entity_type, :entity_relationship, :nodes
   
   def initialize
+    @forms = []
     @redis = Redis.new
-    @entity_types = ["team", "person", "training", "project"]
-    @entity_relationship = {"team" => ["team", "person", "training", "project"], 
-                            "person" => ["team","project","training"],
-                            "project" => ["team", "person"]}
+    @entity_type = ["Team", "Person", "Training", "Project"]
+    @entity_relationship = {"Team" => ["Team", "Person", "Project"], 
+                            "Person" => ["Team","Project","Training"],
+                            "Project" => ["Team", "Person"]}
     @nodes = Hash.new
   end
   
   def save_form (form)
-    @redis.set(form.get_main_value, Oj::dump(form))
-    @redis.sadd("forms", form.get_main_value)
+    @redis.set(form.form_name, Oj::dump(form))
+    @redis.sadd("forms", form.form_name)
   end
   
   def get_forms
-    @redis.smembers("forms")
+    @redis.smembers("forms").each do |form|
+      @forms.push(get_form(form))
+    end
+    @forms
   end
   
   def get_form (form)

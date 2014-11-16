@@ -1,8 +1,19 @@
 <h1>Formularios</h1>
-<div class="table-responsive">
-	<div class="text-right">
-		<a href="/form_builder" class="btn btn-success btn-sm" data-toggle="modal">Nuevo Formulario</a>
+<div class="text-right">
+	<div class="dropdown">
+	  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuForm" data-toggle="dropdown">
+	    Nuevo Formulario
+	    <span class="caret"></span>
+	  </button>
+	  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuForm">
+		 <% @entity_types.each do |entity_type| %>	
+	    	<li role="presentation"><a role="menuitem" tabindex="-1" href="/form_builder/<%= entity_type %>"><%= entity_type %></a></li>
+		 <% end %>
+	  </ul>
 	</div>
+</div>
+<div class="table-responsive">
+	
 	<table class="table table-striped">
 		<thead>
 	    	<tr>
@@ -22,13 +33,13 @@
 			<% @forms.each do |form| %>
 	        	<tr>
 	            <td><%= numeroFormulario += 1 %></td>
-							<td><%= form%></td>
-							<td></td>
-							<td></td>
-							<td></td>
-							<td><a href = "/show_form/<%= form %>"  class="btn btn-primary"> Ver </a></td>
-							<td><a href = "/form_builder/<%= form %>"  class="btn btn-success"> Editar </a></td>
-							<td><a href="/delete_form/<%= form%>" class="btn btn-danger">Eliminar</a></td>
+							<td><%= form.form_name %></td>
+							<td><%= form.entity_type %></td>
+							<td><%= form.create_date %></td>
+							<td><%= form.update_date %></td>
+							<td><a href = "/show_form/<%= form.form_name %>"  class="btn btn-primary"> Ver </a></td>
+							<td><a href = "/edit_form/<%= form.form_name %>"  class="btn btn-success"> Editar </a></td>
+							<td><a href="/delete_form/<%= form.form_name %>" class="btn btn-danger">Eliminar</a></td>
 						</tr>
 			<% end %>
  		</tbody>

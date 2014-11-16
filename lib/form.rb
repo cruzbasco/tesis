@@ -1,15 +1,23 @@
+require "date"
+
 class Form
   
-  attr_accessor :main_attribute,:attributes, :entity_type
+  attr_accessor :form_name, :attributes, :entity_type
     
-  def initialize (name, entity_type)
+  def initialize (name, entity_type, create_date)
     @entity_type = entity_type
-    @main_attribute = Attribute.new("Formulario",name,TextType.new)
+    @form_name = name
     @attributes = Hash.new
+    @create_date = DateTime.strptime(create_date,"%d-%m-%Y %H:%M")
+    @update_date = DateTime.now
   end
   
-  def get_main_value
-    @main_attribute.value
+  def create_date
+    @create_date.strftime("%d-%m-%Y %H:%M")
+  end
+  
+  def update_date
+    @update_date.strftime("%d-%m-%Y %H:%M")
   end
   
   def add_attribute (attribute)
@@ -19,10 +27,6 @@ class Form
   def remove_attribute (attribute)
     @attributes.delete(attribute.property)
   end
-  
-  # def search_attribute (data)
-  #   @attributes.select{|attribute| attribute.property == data || attribute.value == data}.first
-  # end
   
   def get_attributes_values
     @attributes.values

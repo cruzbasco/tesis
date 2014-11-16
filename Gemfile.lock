@@ -3,9 +3,11 @@ GEM
   specs:
     daemons (1.1.9)
     eventmachine (1.0.3)
+    oj (2.11.1)
     rack (1.5.2)
     rack-protection (1.5.2)
       rack
+    redis (3.1.0)
     sinatra (1.4.4)
       rack (~> 1.4)
       rack-protection (~> 1.4)
@@ -20,6 +22,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  singleton
+  oj
+  redis
   sinatra
   thin

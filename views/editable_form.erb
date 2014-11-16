@@ -39,29 +39,33 @@
 		</div>
 	</div>
 	
-	<form class="form-horizontal" action="/save_form" method="post" name="nuevo" id="target" onsubmit="return formulario()">	
+	<form class="form-horizontal" action="/update_form" method="post" name="nuevo" id="target" onsubmit="return formulario()">	
 		<fieldset>
 			<center>
-				<legend>Formulario - <%= @entity_type %> </legend>
+				<legend>Formulario</legend>
 				<div class="text-right">					
 					<a href="#float_modal" class="btn btn-success btn-sm" data-toggle="modal" >Nuevo Campo</a>
 				</div>
 				
 				<!-- Form Hidden Values -->
-				<input type="hidden" name="cc_form_type" value="<%= @entity_type %>">
+				<input type="hidden" name="cc_form_old_name" value="<%= @form.form_name %>">
+				<input type="hidden" name="cc_form_type" value="<%= @form.entity_type %>">
+				<input type="hidden" name="cc_form_date" value="<%= @form.create_date %>">
 				
 				<div class="form-group">
 				  <label class="col-md-2 control-label" for="form_name"></label>
 				  <div class="col-md-8">
 				    <div class="input-group">
 				      <span class="input-group-addon">Nombre del Formulario</span>
-				      <input id="form_name" name="cc_form_name" class="form-control" value ="" type="text" required="" autofocus="">
+				      <input id="form_name" name="cc_form_name" class="form-control" value ="<%= @form.form_name %>" type="text" required="" autofocus="">
 				    </div>
 				  </div>
 				</div>
-				
 			</center>
 			<div class="body">
+				<% @form.get_attributes_values.each do |attribute| %>
+					<%= attribute.editable_type %>
+				<%end%>
 			</div>
 			<center>
 				<div class="control-group">
