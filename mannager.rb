@@ -9,22 +9,22 @@ end
 get "/" do
   @forms = @network.get_forms
   @entity_types
-  erb :"forms"
+  erb :"forms/forms"
 end
 
 get "/show_form/:name" do
   @form = @network.get_form(params[:name])
-  erb :show_form
+  erb :"forms/show_form"
 end
 
 get "/form_builder/:type" do
   @entity_type = params[:type]
-  erb :"form_builder"
+  erb :"forms/form_builder"
 end
 
 get "/edit_form/:name" do
   @form = @network.get_form(params[:name])
-  erb :"editable_form"
+  erb :"forms/editable_form"
 end
 
 post "/save_form" do  
@@ -46,10 +46,10 @@ post "/save_form" do
   @network.save_form(@form)
   @entity_types
   @forms = @network.get_forms  
-  erb :"forms"
+  erb :"forms/forms"
 end
 
-post "/update_form"do
+post "/update_form" do
   @network.delete_form(params[:cc_form_old_name])
   @form = Form.new(params[:cc_form_name],params[:cc_form_type], params[:cc_form_date])
   p = []
@@ -69,14 +69,14 @@ post "/update_form"do
   @network.save_form(@form)
   @entity_types
   @forms = @network.get_forms  
-  erb :"forms"
+  erb :"forms/forms"
 end
 
 get "/delete_form/:name" do
   @network.delete_form(params[:name])
   @entity_types
   @forms = @network.get_forms
-  erb :"forms"
+  erb :"forms/forms"
 end
 
 
