@@ -21,10 +21,24 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
+				<% if @exist_root then%>
+	         <li><a href="/show_root"><%= @root.code %></a></li>
+   			<% else %>
+				<li><a href="/create_root">Crear Raiz</a></li>
+				<% end %>
+				<li class="dropdown">
+				          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Entidades <span class="caret"></span></a>
+				          <ul class="dropdown-menu" role="menu">
+								<% @entity_types.each do |entity_type| %>	
+							    	<li><a href="/show_nodes/<%= entity_type %>"><%= entity_type %></a></li>
+								 <% end %>
+				          </ul>
+				        </li>
+				
             <!-- <li><a href=""> </a></li> -->
           </ul>
 			 <ul class="nav navbar-nav navbar-right">
-				<li><a href="">Configuracion</a></li>	
+				<li><a href="/forms">Configuracion</a></li>	
 				
 			 </ul>
         </div>

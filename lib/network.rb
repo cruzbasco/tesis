@@ -3,16 +3,23 @@ require "oj"
 
 class Network
   
-  attr_accessor :forms, :entity_type, :entity_relationship, :nodes
+  attr_accessor :forms, :entity_type, :entity_relationship, :nodes, :node_counter
   
   def initialize
     @forms = []
+    @nodes = []
     @redis = Redis.new
-    @entity_type = ["Team", "Person", "Training", "Project"]
-    @entity_relationship = {"Team" => ["Team", "Person", "Project"], 
-                            "Person" => ["Team","Project","Training"],
-                            "Project" => ["Team", "Person"]}
+    @entity_type = ["Equipo", "Persona", "Especialidad", "Proyecto"]
+    @entity_relationship = {"Equipo" => ["Equipo", "Persona", "Proyecto"], 
+                            "Persona" => ["Equipo","Proyecto","Especialidad"],
+                            "Proyecto" => ["Equipo", "Persona"]}
     @nodes = Hash.new
+    if has_node_counter? then
+      @node_counter = @redis.get("node_counter")
+    else
+      @node_counter = 0
+    end
+    
   end
   
   def save_form (form)
@@ -21,19 +28,64 @@ class Network
   end
   
   def get_forms
-    @redis.smembers("forms").each do |form|
-      @forms.push(get_form(form))
+    @redis.smembers("forms").each do |form_name|
+      @forms.push(get_form(form_name))
     end
     @forms
   end
   
-  def get_form (form)
-    Oj.load(@redis.get(form))
+  def get_form (form_name)
+    Oj.load(@redis.get(form_name))
   end
   
-  def delete_form (form)
-    @redis.del(form)
-    @redis.srem("forms",form)
+  def delete_form (form_name)
+    @redis.del(form_name)
+    @redis.srem("forms",form_name)
+  end
+  
+  def save_node (node)
+    @redis.set(node.code, Oj::dump(node))
+    @redis.sadd(node.entity_type, node.code)
+  end
+  
+  def get_nodes (entity_type)
+    @redis.smembers(entity_type).each do |node_code|
+      @nodes.push(get_node(node_code))
+    end
+    @nodes
+  end
+  
+  def get_node (node_code)
+    Oj.load(@redis.get(node_code))
+  end
+  
+  def delete_node (node)
+    @redis.del(node.code)
+    @redis.srem(node.entity_type, node.code)
+  end
+  
+  def save_root (node_code)
+    @root = node_code
+  end
+  
+  def get_root
+    get_node(@root)
+  end
+  
+  def exist_root?
+    @root != nil
+  end
+  
+  def has_node_counter?
+    @redis.get("node_counter")
   end
   
 end
+
+
+
+
+
+
+
+

@@ -32,7 +32,7 @@ class Form
     @attributes.values
   end
 
-  def set_attributes(attributes)
+  def set_attributes (attributes)
     @attributes = attributes
   end
   

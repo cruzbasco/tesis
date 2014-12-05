@@ -4,27 +4,33 @@ require 'sinatra'
 before do
   @network = Network.new
   @entity_types = @network.entity_type
+  @exist_root = @network.exist_root?
+  @root = @network.get_root
 end
 
 get "/" do
+  # @entity_types
+  erb :"main_page"
+end
+
+get "/forms" do
   @forms = @network.get_forms
-  @entity_types
-  erb :"forms/forms"
+  erb :"configuration/forms/forms"
 end
 
 get "/show_form/:name" do
   @form = @network.get_form(params[:name])
-  erb :"forms/show_form"
+  erb :"configuration/forms/show_form"
 end
 
 get "/form_builder/:type" do
   @entity_type = params[:type]
-  erb :"forms/form_builder"
+  erb :"configuration/forms/form_builder"
 end
 
 get "/edit_form/:name" do
   @form = @network.get_form(params[:name])
-  erb :"forms/editable_form"
+  erb :"configuration/forms/editable_form"
 end
 
 post "/save_form" do  
@@ -44,9 +50,9 @@ post "/save_form" do
   end
   
   @network.save_form(@form)
-  @entity_types
+  # @entity_types
   @forms = @network.get_forms  
-  erb :"forms/forms"
+  erb :"configuration/forms/forms"
 end
 
 post "/update_form" do
@@ -67,18 +73,36 @@ post "/update_form" do
   end
   
   @network.save_form(@form)
-  @entity_types
+  # @entity_types
   @forms = @network.get_forms  
-  erb :"forms/forms"
+  erb :"configuration/forms/forms"
 end
 
 get "/delete_form/:name" do
   @network.delete_form(params[:name])
-  @entity_types
+  # @entity_types
   @forms = @network.get_forms
-  erb :"forms/forms"
+  erb :"configuration/forms/forms"
 end
 
+get "/create_root" do
+  erb :"nodes/root_builder"
+end
+
+post "save_root" do
+  @node = @root
+  erb :"nodes/show_node"
+end
+
+post "update_root" do
+  @node = @root
+  erb :"nodes/show_node"
+end
+
+get "/show_root" do
+  @node = @root
+  erb :"nodes/show_node"
+end
 
 
 
