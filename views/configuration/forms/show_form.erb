@@ -9,7 +9,7 @@
 				  <div class="col-md-8">
 				    <div class="input-group">
 				      <span class="input-group-addon">Nombre del Formulario</span>
-				      <input name="form_name" class="form-control" value ="<%= @form.main_attribute.value %>" type="text" readonly="">
+				      <input name="form_name" class="form-control" value ="<%= @form.form_name %>" type="text" readonly="">
 				    </div>
 				  </div>
 				</div>
@@ -19,16 +19,17 @@
 					<%= attribute.non_editable_type %>
 				<%end%>
 			</div>
-			<center>
-				<div class="control-group">
-				  <div class="controls">
-				    <a href="/" class="btn btn-default">Cancelar</a>
-					 <a href="/edit_form/<%= @form.main_attribute.value %>" class="btn btn-success">Editar</a>			
-				  </div>
-				</div>
-			</center>
+		
 		</fieldset>
 	</form>
+		<center>
+			<div class="control-group">
+			  <div class="controls">
+			    <button onclick="go_back();" class="btn btn-default">Cancelar</button>
+				 <a href="/edit_form/<%= @form.form_name %>" class="btn btn-success">Editar</a>			
+			  </div>
+			</div>
+		</center>
 </div>
  
 

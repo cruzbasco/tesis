@@ -11,7 +11,7 @@ class Network
     @redis = Redis.new
     @entity_type = ["Equipo", "Persona", "Especialidad", "Proyecto"]
     @entity_relationship = {"Equipo" => ["Equipo", "Persona", "Proyecto"], 
-                            "Persona" => ["Equipo","Proyecto","Especialidad"],
+                            "Persona" => ["Equipo", "Proyecto", "Especialidad"],
                             "Proyecto" => ["Equipo", "Persona"]}
     @nodes = Hash.new
     if has_node_counter? then

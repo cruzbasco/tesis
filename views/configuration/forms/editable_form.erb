@@ -62,15 +62,35 @@
 				  </div>
 				</div>
 			</center>
+			<div> <!-- class="body"> -->
+				<!-- poner una tabla aqui -->
+				<div class="table-responsive">
+
+					<table id="formTable" class="table table-striped">
+						<thead>
+					    	<tr>
+					          <th>Campo</th>
+								 <th></th>
+								 <th></th>
+								 <th>Editar</th>
+								 <th>Eliminar</th>
+					     	</tr>
+						</thead>
+						<tbody class="body">
+							<% @form.get_attributes_values.each do |attribute| %>
+								<%= attribute.editable_type %>
+							<%end%>					   
+						</tbody>
+					</table>
+				</div>
+			</div>
 			<div class="body">
-				<% @form.get_attributes_values.each do |attribute| %>
-					<%= attribute.editable_type %>
-				<%end%>
+				
 			</div>
 			<center>
 				<div class="control-group">
 				  <div class="controls">
-				    <a href="/" id="cancelar" name="cancelar" class="btn btn-default">Cancelar</a>
+				    <button onclick="go_back();" class="btn btn-default">Cancelar</button>
 					 <input type="submit" value="Aceptar" class="btn btn-primary" />					
 				  </div>
 				</div>

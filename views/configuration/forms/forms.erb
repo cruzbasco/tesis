@@ -33,14 +33,14 @@
 			<% @forms.each do |form| %>
 	        	<tr>
 	            <td><%= numeroFormulario += 1 %></td>
-							<td><%= form.form_name %></td>
-							<td><%= form.entity_type %></td>
-							<td><%= form.create_date %></td>
-							<td><%= form.update_date %></td>
-							<td><a href = "/show_form/<%= form.form_name %>"  class="btn btn-primary"> Ver </a></td>
-							<td><a href = "/edit_form/<%= form.form_name %>"  class="btn btn-success"> Editar </a></td>
-							<td><a href="/delete_form/<%= form.form_name %>" class="btn btn-danger">Eliminar</a></td>
-						</tr>
+					<td><%= form.form_name %></td>
+					<td><%= form.entity_type %></td>
+					<td><%= form.create_date %></td>
+					<td><%= form.update_date %></td>
+					<td><a href = "/show_form/<%= form.form_name %>"  class="btn btn-primary"> Ver </a></td>
+					<td><a href = "/edit_form/<%= form.form_name %>"  class="btn btn-success"> Editar </a></td>
+					<td><a href = "/delete_form/<%= form.form_name %>" class="btn btn-danger">Eliminar</a></td>
+				</tr>
 			<% end %>
  		</tbody>
 	</table>
