@@ -77,7 +77,7 @@ class Network
   end
   
   def has_node_counter?
-    @redis.get("node_counter")
+    @redis.exists("node_counter")
   end
   
 end

@@ -1,19 +1,18 @@
 <h1>Formularios</h1>
 <div class="text-right">
 	<div class="dropdown">
-	  <button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuForm" data-toggle="dropdown">
-	    Nuevo Formulario
-	    <span class="caret"></span>
-	  </button>
-	  <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuForm">
-		 <% @entity_types.each do |entity_type| %>	
-	    	<li role="presentation"><a role="menuitem" tabindex="-1" href="/form_builder/<%= entity_type %>"><%= entity_type %></a></li>
-		 <% end %>
-	  </ul>
+	 	<button class="btn btn-success dropdown-toggle" type="button" id="dropdownMenuForm" data-toggle="dropdown">
+	    	Nuevo Formulario
+	    	<span class="caret"></span>
+	  	</button>
+	  	<ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenuForm">
+		 	<% @entity_types.each do |entity_type| %>	
+	    		<li role="presentation"><a role="menuitem" tabindex="-1" href="/form_builder/<%= entity_type %>"><%= entity_type %></a></li>
+		 	<% end %>
+	  	</ul>
 	</div>
 </div>
 <div class="table-responsive">
-	
 	<table class="table table-striped">
 		<thead>
 	    	<tr>
@@ -25,14 +24,13 @@
 				 <th></th>
 				 <th>Opciones</th>
 				 <th></th>
-			      
 	     	</tr>
 		</thead>
 		<tbody>
 			<% numeroFormulario = 0 %>
 			<% @forms.each do |form| %>
 	        	<tr>
-	            <td><%= numeroFormulario += 1 %></td>
+	            	<td><%= numeroFormulario += 1 %></td>
 					<td><%= form.form_name %></td>
 					<td><%= form.entity_type %></td>
 					<td><%= form.create_date %></td>

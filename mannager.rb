@@ -1,11 +1,14 @@
 require './gemas'
+require 'rubygems'
 require 'sinatra'
 
 before do
   @network = Network.new
   @entity_types = @network.entity_type
   @exist_root = @network.exist_root?
-  @root = @network.get_root
+  if (@exist_root) then 
+    @root = @network.get_root
+  end
 end
 
 get "/" do

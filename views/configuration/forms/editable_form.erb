@@ -4,20 +4,21 @@
 		<div class="modal-dialog">
 			<div class="modal-content">
 				<div class="modal-header">
+					<center><h2></h2></center>
 				</div>
 				<div class="modal-body">
-					<form class="form-horizontal" id='menu_flotante' action="">
+					<div class="form-horizontal" id='menu_flotante' action="">
 						<fieldset>
 						
 						<div class="form-group">
-						  <label class="col-md-4 control-label" for="type">Tipo</label>
-						  <div class="col-md-4">
-						    <select id="type" name="" class="form-control">
-						      <option value="text">Texto</option>
-						      <option value="number">Numero</option>
-								<option value="date">Fecha</option>
-						    </select>
-						  </div>
+							<label class="col-md-4 control-label" for="type">Tipo</label>
+							<div class="col-md-4">
+							    <select id="type" name="" class="form-control">
+							    	<option value="text">Texto</option>
+							    	<option value="number">Numero</option>
+									<option value="date">Fecha</option>
+							    </select>
+						  	</div>
 						</div>
 						
 						<div class='required form-group'>
@@ -28,12 +29,12 @@
 						</div>
 						
 						<div class="modal-footer">
-				        	<button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+				        	<button type="button" id="close_modal" class="btn btn-default" data-dismiss="modal">Cerrar</button>
 							<button type="button" id="save" class="btn btn-primary">Guardar</button>
 						</div>
 						
 						</fieldset>
-		     		</form>
+		     		</div>
 		    	</div>
 			</div>
 		</div>
@@ -44,9 +45,9 @@
 			<center>
 				<legend>Formulario</legend>
 				<div class="text-right">					
-					<a href="#float_modal" class="btn btn-success btn-sm" data-toggle="modal" >Nuevo Campo</a>
+					<a href="#float_modal" id="new_field" class="btn btn-success btn-sm" data-toggle="modal">Nuevo Campo</a>
 				</div>
-				
+
 				<!-- Form Hidden Values -->
 				<input type="hidden" name="cc_form_old_name" value="<%= @form.form_name %>">
 				<input type="hidden" name="cc_form_type" value="<%= @form.entity_type %>">
@@ -62,42 +63,32 @@
 				  </div>
 				</div>
 			</center>
-			<div> <!-- class="body"> -->
-				<!-- poner una tabla aqui -->
-				<div class="table-responsive">
-
-					<table id="formTable" class="table table-striped">
-						<thead>
-					    	<tr>
-					          <th>Campo</th>
-								 <th></th>
-								 <th></th>
-								 <th>Editar</th>
-								 <th>Eliminar</th>
-					     	</tr>
-						</thead>
-						<tbody class="body">
-							<% @form.get_attributes_values.each do |attribute| %>
-								<%= attribute.editable_type %>
-							<%end%>					   
-						</tbody>
-					</table>
-				</div>
-			</div>
-			<div class="body">
-				
+			<div class="table-responsive">
+				<table id="formTable" class="table table-striped">
+					<thead>
+				    	<tr>
+				        	<th>Campo</th>
+							<th></th>
+							<th></th>
+							<th>Editar</th>
+							<th>Eliminar</th>
+				     	</tr>
+					</thead>
+					<tbody class="body">
+						<% @form.get_attributes_values.each do |attribute| %>
+							<%= attribute.editable_type %>
+						<%end%>					   
+					</tbody>
+				</table>
 			</div>
 			<center>
 				<div class="control-group">
-				  <div class="controls">
-				    <button onclick="go_back();" class="btn btn-default">Cancelar</button>
-					 <input type="submit" value="Aceptar" class="btn btn-primary" />					
-				  </div>
+				    <a id='go_back' class="btn btn-default">Cancelar</a>
+					<input type="submit" value="Aceptar" class="btn btn-primary" />					
 				</div>
 			</center>
 		</fieldset>
 	</form>
-
 </div>
  
 

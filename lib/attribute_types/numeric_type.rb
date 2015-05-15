@@ -10,7 +10,7 @@ class NumericType
 		button_delete = "<td><a href='#' onclick='delete_row(this)' class='btn btn-danger'><span class='glyphicon glyphicon-remove'></span></a></td>"
 		field_label = "<label class='control-label col-sm-2' for='#{property}'> #{property}:</label>"
 		field_type = "<div class='col-md-8'><input name='#{property}' type='number' value='#{value}' class='form-control input-md'/></div>"
-		field_hidden ="<input type='hidden' name='#{property + '_type'}' value='number'>"
+		field_hidden = "<input type='hidden' name='#{property + '_type'}' value='number'>"
     "<tr><td><div class = 'form-group'>#{field_label}#{field_type}</div></td>#{field_hidden}#{button_up}#{button_down}#{button_edit}#{button_delete}</tr>"
   end
   
